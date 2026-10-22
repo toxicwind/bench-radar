@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# bench-radar — self-test gate (PASS/FAIL).
+# Benchmark-radar server. Gate = server.ts type-checks via bun build (bun-native)
+# and the notify/pitchfork supervision artifacts are present. Does not launch
+# the serving daemon.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+export RUN_FAST_ACTIVE=0
+BUN="${BUN:-/home/toxic/.bun/bin/bun}"; [ -x "$BUN" ] || BUN=bun
+
+echo "== bench-radar check: start =="
+[ -f server.ts ] || { echo "FAIL: server.ts missing"; exit 1; }
+
+set +e
+out="$("$BUN" build server.ts --target=bun --outfile=/tmp/benchradar-check.js 2>&1)"
+rc=$?
+set -e
+echo "$out"
+[ "$rc" -eq 0 ] || { echo "FAIL: bun build server.ts rc=$rc"; exit 1; }
+rm -f /tmp/benchradar-check.js
+
+for f in notify.sh pitchfork.d; do
+  [ -e "$f" ] || { echo "NOTE: $f missing"; }
+done
+
+echo "== bench-radar check: PASS =="
+exit 0

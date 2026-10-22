@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# bench-radar — primary operation: run the model-benchmark radar server.
+# Entry: server.ts (serves benchmark radar state / refresh).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+export RUN_FAST_ACTIVE=0
+BUN="${BUN:-/home/toxic/.bun/bin/bun}"; [ -x "$BUN" ] || BUN=bun
+
+if [ "${1:-}" = "check" ]; then exec ./bin/check; fi
+[ -f server.ts ] || { echo "FAIL: server.ts missing"; exit 1; }
+exec "$BUN" run server.ts "$@"
