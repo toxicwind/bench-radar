@@ -1,0 +1,56 @@
+{
+  "product": "bench-radar",
+  "path": "/home/toxic/pens/ranch/products/bench-radar",
+  "files": 5,
+  "detected_at": "2026-10-30T06:11:04.180371Z",
+  "env_vars": {
+    "BENCH_RADAR_AGENT_ID": [
+      "notify.sh"
+    ],
+    "BENCH_RADAR_BACKFILL": [
+      "server.ts"
+    ],
+    "BENCH_RADAR_LOG": [
+      "server.ts"
+    ],
+    "BENCH_RADAR_POLL_MS": [
+      "server.ts"
+    ],
+    "BENCH_RADAR_PORT": [
+      "server.ts"
+    ],
+    "BENCH_RADAR_ROOM": [
+      "notify.sh"
+    ],
+    "BENCH_RADAR_STATE": [
+      "server.ts"
+    ],
+    "FLEET_CHAT_URL": [
+      "notify.sh"
+    ],
+    "LOG": [
+      "server.ts"
+    ],
+    "PORT": [
+      "server.ts"
+    ],
+    "ROOM": [
+      "notify.sh"
+    ],
+    "cold": [
+      "server.ts"
+    ],
+    "count": [
+      "server.ts"
+    ],
+    "med": [
+      "server.ts"
+    ],
+    "ompCase": [
+      "server.ts"
+    ],
+    "sname": [
+      "server.ts"
+    ]
+  }
+}
