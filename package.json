@@ -1,0 +1,27 @@
+{
+  "name": "bench-radar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reactive regression-detection service for nightly benchmarks",
+  "scripts": {
+    "dev": "bun --hot run src/server.ts",
+    "test": "bun test",
+    "typecheck": "tsgo --noEmit -p tsconfig.json",
+    "lint": "biome check .",
+    "fmt": "biome format --write .",
+    "build": "bun build src/server.ts --outfile dist/server.js --target bun"
+  },
+  "bin": {
+    "bench-radar": "./src/server.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
+    "@types/bun": "^1.0.0",
+    "bun-types": "npm:@types/bun@latest",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "type": "module"
+}
